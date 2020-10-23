@@ -1,0 +1,10 @@
+- name: Install httpd latest
+  yum: name={{ package['name'] }} state=latest
+
+- name: Start httpd
+  service: name=httpd state=started
+
+- name: Copy sosmed to /var/www/html/
+  #template: src="{{ app['source'] }}/*" dest= {{ app['destination'] }}
+  copy: src="/tmp/landing-page/" dest="{{ app['destination'] }}" force=no
+  notify: "restart httpd"

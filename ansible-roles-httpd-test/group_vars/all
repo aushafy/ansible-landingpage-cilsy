@@ -1,0 +1,8 @@
+---
+package:
+  name: "httpd"
+
+app:
+  name: "Sosial Media"
+  source: "sosial-media"
+  destination: "/var/www/html/"
