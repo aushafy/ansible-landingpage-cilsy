@@ -36,3 +36,9 @@
     src: /tmp/latest.tar.gz
     dest: /var/www/html/
     remote_src: yes
+
+- name: copy wp-config to /var/www/html/wordpress
+  template:
+    src: wp-config.php.j2
+    dest: /var/www/html/wordpress/wp-config.php
+  notify: "restart apache2"

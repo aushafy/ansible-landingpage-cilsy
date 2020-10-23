@@ -5,3 +5,12 @@
   become_method: sudo
   roles:
     - wordpress
+
+#- name: Install MySQL
+#  hosts: db
+#  remote_user: ubuntu
+#  become: yes
+#  become_method: sudo
+#  roles:
+#    - mysql
+
