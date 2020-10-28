@@ -1,0 +1,54 @@
+- name: download odoo 10
+  get_url:
+    url: odoo_10.0.20200307_all.deb
+    dest: /tmp/odoo_10.0.20200307_all.deb
+    mode: 755
+
+- name: ekstrak deb file to source.list
+  command: echo "deb /tmp/odoo_10.0.20200307_all.deb ./" >> /etc/apt/sources.list
+
+- name: update and install odoo
+  apt:
+    name: odoo
+    update_cache: yes
+
+# - name: install apache2
+#   apt:
+#     name: apache2
+#     state: present
+
+# - name: install dependencies
+#   apt:
+#     pkg:
+#     - php
+#     - libapache2-mod-php
+#     - php-mysql
+#     - php-curl
+#     - php-gd
+#     - php-xml
+#     - php-mbstring
+#     - php-xmlrpc
+#     - php-zip
+#     - php-soap
+#     - php-intl
+#     - tar
+#     - mysql-client
+
+# - name: start service apache2
+#   service:
+#     name: apache2
+#     state: started
+
+
+
+# - name: unzip wordpress package
+#   unarchive:
+#     src: /tmp/latest.tar.gz
+#     dest: /var/www/html/
+#     remote_src: yes
+
+# - name: copy wp-config to /var/www/html/wordpress
+#   template:
+#     src: wp-config.php.j2
+#     dest: /var/www/html/wordpress/wp-config.php
+#   notify: "restart apache2"

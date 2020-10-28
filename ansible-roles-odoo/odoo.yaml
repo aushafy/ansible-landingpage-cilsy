@@ -1,0 +1,7 @@
+- name: Install Odoo
+  hosts: odoo
+#   remote_user: ubuntu
+#   become: yes
+#   become_method: sudo
+  roles:
+    - odoo
